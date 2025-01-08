@@ -26,14 +26,50 @@
             console.log(values[i]);
         }
 
-        //Aufgabe: Alle Attribut-Werte-Kombinationen von peter ausgeben mit Klasse Object
-        const entries = Object.entries(peter);
-        for (let i = 0; i < entries.length; i++) {
-            console.log(entries[i]);
+        //Alternativ values mit for-of-Schleife
+        for (const value of values) {
+            console.log(value);
         }
 
-    </script>
+        //Aufgabe: Alle Attribut-Werte-Kombinationen von peter ausgeben mit Klasse Object
+        for (let[vorname, nachname] of Object.entries(peter)) {
+            console.log(vorname + ': ' + nachname);
+        }
 
+        //Alternativ mit for-i-Schleife
+        const entries = Object.entries(peter);
+            for(let i = 0; i < entries.length; i++) {
+                // for(let j = 0; j < entries[i].length; j++ ) {
+                //     console.log(entries[i][j]);
+                    console.log(entries[i][0] + ': ' + entries[i][1]);
+                // }
+            }
+
+        //Alternativ 2 for-of-Schleife
+        //const entries = Object.entries(peter); hier notwendig
+        for (const entry of entries) {
+            console.log(entry[0] + ': ' + entry[1]);
+        }
+
+        // Ergebnis Vergleich //
+        //for-of benennt element bzw. key-element (array)
+        const zahlenArray = [3, 17, 24];
+        zahlenArray[4] = 33;
+        for (let i = 0; i < zahlenArray.length; i++) {
+            console.log(zahlenArray[i]);
+        }
+
+        for (const number of zahlenArray) {
+            console.log(number);
+        }
+        //bei Lücken im Index verhält sich for-i und for-of gleich
+
+        for (const zahlenArrayKey in zahlenArray) {
+            console.log(zahlenArray[zahlenArrayKey]);
+        }
+        //bei der for-in Schleife werden Lücken von Schlüsseln nicht ausgegeben
+
+    </script>
 
 </head>
 <body>
